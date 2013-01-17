@@ -1,5 +1,20 @@
 <h1>New project</h1>
+<% form_for :project, :url => projects_path do |f| %>
+<p>
+	Name: <%= f.text_field :name %>
+	Description: <%= f.text_field :description %>
+	</p>
+	<% for task in @project.tasks %>
+	<% fields_for "project[task_attributes][]", task do |task_form| %>
+	<p>
+		Task: <%= task_form.text_field :name %>
+	</p>
+	<% end %>
+	<% end %>
 
+
+	<p><%= submit_tag "Create Project">
+end
 <%= render 'form' %>
 
 <%= link_to 'Back', projects_path %>

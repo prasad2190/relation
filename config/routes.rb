@@ -1,8 +1,13 @@
 Pro::Application.routes.draw do
-  resources :users do
+     resources :users do
   resources :projects do
+    resources :tasks
   end
 end
+  
+ # end
+
+
 
  
   

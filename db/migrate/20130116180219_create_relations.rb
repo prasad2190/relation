@@ -1,11 +1,12 @@
 class CreateRelations < ActiveRecord::Migration
   def change
-    create_table :relations do |t|
-    	t.references :user
-    	t.references :project
+    create_table 'relations' , :id => false do |t|
+    	t.column  'user_id' , :integer
+    	t.column 'product_id',:integer
+    	
 
       t.timestamps
     end
-    add_index :relations, ['user_id','project_id']
+   
   end
 end
